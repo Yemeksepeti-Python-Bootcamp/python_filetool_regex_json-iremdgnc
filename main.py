@@ -16,7 +16,7 @@ def main():
 
     try:
         read_json = Json(json_path)  # Calls "dataregex.json"
-        database = Database(database_path)  # Calls  "dataregex.db"
+        database = Database(database_path)  # Calls "dataregex.db"
         user_list = read_json.create_user
         database.create_table()  # Create table
         database.bulk_insert(user_list)
