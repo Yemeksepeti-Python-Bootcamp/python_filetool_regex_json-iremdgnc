@@ -6,7 +6,6 @@ class Regex():
         """
         This functions checking whether the e-mail contains the username or part of it (at least 3 letters).
         """
-
         username = username.lower()
         email = email.lower()
         username = username.replace(" ", "")
