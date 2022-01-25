@@ -6,19 +6,19 @@ import argparse
 
 def main():
 
-    parser = argparse.ArgumentParser() # Create the parser
-    parser.add_argument("--jp", type=str, required=True)  # Add --file argument
-    parser.add_argument("--dp", type=str, required=True) # Add --db argument
-    args = parser.parse_args() # Parse the argument
+    parser = argparse.ArgumentParser()  # Create the parser
+    parser.add_argument('-f', '--file', required=True, help='Enter file name')  # Add --file argument
+    parser.add_argument('-db', '--db', required=True, help='Enter database name')  # Add --db argument
+    args = parser.parse_args()  # Parse the argument
 
-    json_path = args.jp #Set file as argument
-    database_path = args.dp #Set db as argument
+    json_path = args.jp  # Set file as argument
+    database_path = args.dp  # Set db as argument
 
     try:
-        read_json = Json(json_path) #Calls "dataregex.json"
-        database = Database(database_path) # Calls  "dataregex.db"
+        read_json = Json(json_path)  # Calls "dataregex.json"
+        database = Database(database_path)  # Calls  "dataregex.db"
         user_list = read_json.create_user
-        database.create_table() # Create table
+        database.create_table()  # Create table
         database.bulk_insert(user_list)
 
     except:
